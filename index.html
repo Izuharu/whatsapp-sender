@@ -7,6 +7,7 @@
     <title>PropChat — Never Lose a Lead Again | WhatsApp CRM for Property Agents</title>
     <meta name="description"
         content="PropChat is the WhatsApp CRM built for Malaysian property agents. Automate follow-ups, broadcast new listings, and never lose a lead again.">
+    <link rel="icon" type="image/png" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
@@ -1623,7 +1624,8 @@
                         <input type="tel" class="cta__input" placeholder="WhatsApp number (+60...)" id="phone-input"
                             required>
                     </div>
-                    <button type="submit" class="btn btn--primary" id="submit-btn">Join Waitlist →</button>
+                    <button type="submit" class="btn btn--primary" id="submit-btn"
+                        style="width:100%; padding:16px;">Join Waitlist →</button>
                 </form>
                 <div id="form-toast"
                     style="display:none; margin-top:12px; padding:10px 20px; border-radius:8px; font-size:13px; font-weight:600; text-align:center;">
@@ -1668,8 +1670,8 @@
 
         // ===== SUPABASE CONFIG =====
         // Replace these with your actual Supabase project values
-        const SUPABASE_URL = 'YOUR_SUPABASE_URL';       // e.g. https://xxxxx.supabase.co
-        const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY'; // public anon key
+        const SUPABASE_URL = 'https://wlxobdhzxglqzsbbkruz.supabase.co';       // e.g. https://xxxxx.supabase.co
+        const SUPABASE_ANON_KEY = 'sb_publishable_HN2dXpBTf_xWxdxu0wyCrQ_1E3dE6Uv'; // public anon key
 
         // Form handler
         async function handleSubmit(e) {
