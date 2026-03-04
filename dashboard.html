@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PropChat — Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <a href="index.html" class="sidebar__logo">
+            <div class="sidebar__logo-icon">💬</div>
+            PropChat
+        </a>
+        <nav class="sidebar__nav">
+            <button class="sidebar__item sidebar__item--active" data-view="dashboard">
+                <span class="sidebar__icon">📊</span> Dashboard
+            </button>
+            <button class="sidebar__item" data-view="contacts">
+                <span class="sidebar__icon">👥</span> Contacts
+            </button>
+            <button class="sidebar__item" data-view="broadcasts">
+                <span class="sidebar__icon">📢</span> Broadcasts
+            </button>
+            <button class="sidebar__item" data-view="listings">
+                <span class="sidebar__icon">🏠</span> Listings
+            </button>
+            <button class="sidebar__item" data-view="viewings">
+                <span class="sidebar__icon">📅</span> Viewings
+            </button>
+            <button class="sidebar__item" data-view="automations">
+                <span class="sidebar__icon">🤖</span> Automations
+            </button>
+            <button class="sidebar__item" data-view="analytics">
+                <span class="sidebar__icon">📈</span> Analytics
+            </button>
+            <button class="sidebar__item" data-view="settings">
+                <span class="sidebar__icon">⚙️</span> Settings
+            </button>
+        </nav>
+        <div class="sidebar__footer">
+            <div class="sidebar__user">
+                <div class="sidebar__avatar">AR</div>
+                <div class="sidebar__user-info">
+                    <span class="sidebar__name">Ahmad Razif</span>
+                    <span class="sidebar__role">Pro Agent</span>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Top Bar -->
+        <header class="topbar">
+            <div class="topbar__left">
+                <h1 class="topbar__title" id="page-title">Dashboard</h1>
+                <span class="topbar__badge">● Live</span>
+            </div>
+            <div class="topbar__right">
+                <div class="topbar__search">
+                    <span>🔍</span>
+                    <input type="text" placeholder="Search contacts, listings..." />
+                </div>
+                <button class="topbar__notif">🔔<span class="topbar__notif-dot"></span></button>
+            </div>
+        </header>
+
+        <!-- === DASHBOARD VIEW === -->
+        <div class="view view--active" id="view-dashboard">
+            <div class="stats-row">
+                <div class="stat-card">
+                    <div class="stat-card__header">
+                        <span class="stat-card__label">Active Leads</span>
+                        <span class="stat-card__icon">👥</span>
+                    </div>
+                    <div class="stat-card__value">247</div>
+                    <div class="stat-card__change stat-card__change--up">↑ 18% from last week</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card__header">
+                        <span class="stat-card__label">Messages Sent</span>
+                        <span class="stat-card__icon">💬</span>
+                    </div>
+                    <div class="stat-card__value">1,842</div>
+                    <div class="stat-card__change stat-card__change--up">↑ 24% from last month</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card__header">
+                        <span class="stat-card__label">Viewings Booked</span>
+                        <span class="stat-card__icon">📅</span>
+                    </div>
+                    <div class="stat-card__value">38</div>
+                    <div class="stat-card__change stat-card__change--up">↑ 12% from last week</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card__header">
+                        <span class="stat-card__label">Response Rate</span>
+                        <span class="stat-card__icon">📈</span>
+                    </div>
+                    <div class="stat-card__value">89%</div>
+                    <div class="stat-card__change stat-card__change--up">↑ 5% from last month</div>
+                </div>
+            </div>
+            <div class="panel-row">
+                <div class="panel panel--wide">
+                    <h3 class="panel__title">Recent Broadcasts</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Campaign</th>
+                                <th>Contacts</th>
+                                <th>Delivered</th>
+                                <th>Replies</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="td--bold">New Launch — Eko Titiwangsa</td>
+                                <td>412</td>
+                                <td>98%</td>
+                                <td>67</td>
+                                <td><span class="status status--sent">✓ Sent</span></td>
+                            </tr>
+                            <tr>
+                                <td class="td--bold">Subsale — Mont Kiara 3BR</td>
+                                <td>186</td>
+                                <td>97%</td>
+                                <td>34</td>
+                                <td><span class="status status--sent">✓ Sent</span></td>
+                            </tr>
+                            <tr>
+                                <td class="td--bold">Open House — Bangsar South</td>
+                                <td>324</td>
+                                <td>—</td>
+                                <td>—</td>
+                                <td><span class="status status--scheduled">◷ Today 2PM</span></td>
+                            </tr>
+                            <tr>
+                                <td class="td--bold">Price Drop — KLCC Studio</td>
+                                <td>198</td>
+                                <td>—</td>
+                                <td>—</td>
+                                <td><span class="status status--draft">Draft</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="panel">
+                    <h3 class="panel__title">Upcoming Viewings</h3>
+                    <div class="viewing-list">
+                        <div class="viewing-item">
+                            <div class="viewing-item__time">10:00 AM</div>
+                            <div class="viewing-item__info">
+                                <div class="viewing-item__title">Mont Kiara — Unit 12A</div>
+                                <div class="viewing-item__client">Ahmad Razali • 3BR, RM620K</div>
+                            </div>
+                            <span class="status status--confirmed">Confirmed</span>
+                        </div>
+                        <div class="viewing-item">
+                            <div class="viewing-item__time">2:00 PM</div>
+                            <div class="viewing-item__info">
+                                <div class="viewing-item__title">Bangsar South — Tower B</div>
+                                <div class="viewing-item__client">Siti Aminah • 2BR, RM480K</div>
+                            </div>
+                            <span class="status status--pending">Pending</span>
+                        </div>
+                        <div class="viewing-item">
+                            <div class="viewing-item__time">4:30 PM</div>
+                            <div class="viewing-item__info">
+                                <div class="viewing-item__title">KLCC — Studio Unit</div>
+                                <div class="viewing-item__client">James Tan • Studio, RM350K</div>
+                            </div>
+                            <span class="status status--confirmed">Confirmed</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- === CONTACTS VIEW === -->
+        <div class="view" id="view-contacts">
+            <div class="view__header">
+                <div>
+                    <h2 class="view__heading">Contacts</h2>
+                    <p class="view__subheading">247 total contacts • 18 added this week</p>
+                </div>
+                <div class="view__actions">
+                    <button class="btn btn--secondary">Import CSV</button>
+                    <button class="btn btn--primary">+ Add Contact</button>
+                </div>
+            </div>
+            <div class="filter-bar">
+                <button class="filter-btn filter-btn--active">All (247)</button>
+                <button class="filter-btn">Hot Leads (42)</button>
+                <button class="filter-btn">Buyers (156)</button>
+                <button class="filter-btn">Sellers (38)</button>
+                <button class="filter-btn">Tenants (11)</button>
+            </div>
+            <div class="panel">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>Interest</th>
+                            <th>Budget</th>
+                            <th>Area</th>
+                            <th>Last Active</th>
+                            <th>Tag</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="td--bold">Ahmad Razali</td>
+                            <td>+60 12-345 6789</td>
+                            <td>Buying</td>
+                            <td>RM 500K-700K</td>
+                            <td>Mont Kiara</td>
+                            <td>2 hrs ago</td>
+                            <td><span class="tag tag--hot">🔥 Hot</span></td>
+                        </tr>
+                        <tr>
+                            <td class="td--bold">Siti Aminah</td>
+                            <td>+60 13-876 5432</td>
+                            <td>Buying</td>
+                            <td>RM 400K-550K</td>
+                            <td>Bangsar South</td>
+                            <td>5 hrs ago</td>
+                            <td><span class="tag tag--hot">🔥 Hot</span></td>
+                        </tr>
+                        <tr>
+                            <td class="td--bold">James Tan</td>
+                            <td>+60 17-234 5678</td>
+                            <td>Investment</td>
+                            <td>RM 300K-400K</td>
+                            <td>KLCC</td>
+                            <td>1 day ago</td>
+                            <td><span class="tag tag--warm">Warm</span></td>
+                        </tr>
+                        <tr>
+                            <td class="td--bold">Nurul Aisyah</td>
+                            <td>+60 11-987 6543</td>
+                            <td>Renting</td>
+                            <td>RM 2K-3K/mo</td>
+                            <td>Cheras</td>
+                            <td>1 day ago</td>
+                            <td><span class="tag tag--warm">Warm</span></td>
+                        </tr>
+                        <tr>
+                            <td class="td--bold">David Lim</td>
+                            <td>+60 16-543 2198</td>
+                            <td>Selling</td>
+                            <td>RM 800K+</td>
+                            <td>Damansara</td>
+                            <td>3 days ago</td>
+                            <td><span class="tag tag--cold">Cold</span></td>
+                        </tr>
+                        <tr>
+                            <td class="td--bold">Priya Nair</td>
+                            <td>+60 19-876 1234</td>
+                            <td>Buying</td>
+                            <td>RM 600K-900K</td>
+                            <td>Sri Hartamas</td>
+                            <td>4 days ago</td>
+                            <td><span class="tag tag--cold">Cold</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- === BROADCASTS VIEW === -->
+        <div class="view" id="view-broadcasts">
+            <div class="view__header">
+                <div>
+                    <h2 class="view__heading">Broadcasts</h2>
+                    <p class="view__subheading">Send listing alerts to segmented contact lists</p>
+                </div>
+                <div class="view__actions">
+                    <button class="btn btn--primary">+ New Broadcast</button>
+                </div>
+            </div>
+            <div class="broadcast-grid">
+                <div class="broadcast-card">
+                    <div class="broadcast-card__status broadcast-card__status--sent">Sent</div>
+                    <h4 class="broadcast-card__title">New Launch — Eko Titiwangsa</h4>
+                    <p class="broadcast-card__meta">412 contacts • Sent Mar 4, 9:00 AM</p>
+                    <div class="broadcast-card__stats">
+                        <div><span class="broadcast-card__num">98%</span><span
+                                class="broadcast-card__label">Delivered</span></div>
+                        <div><span class="broadcast-card__num">89%</span><span class="broadcast-card__label">Read</span>
+                        </div>
+                        <div><span class="broadcast-card__num">67</span><span
+                                class="broadcast-card__label">Replies</span></div>
+                    </div>
+                    <div class="broadcast-card__template">
+                        <p>"Hi {{name}}, new launch alert! 🏗️ Eko Titiwangsa — 2BR from RM450K. Strategic location near
+                            LRT. Reply INFO for brochure."</p>
+                    </div>
+                </div>
+                <div class="broadcast-card">
+                    <div class="broadcast-card__status broadcast-card__status--sent">Sent</div>
+                    <h4 class="broadcast-card__title">Subsale — Mont Kiara 3BR</h4>
+                    <p class="broadcast-card__meta">186 contacts • Sent Mar 3, 10:30 AM</p>
+                    <div class="broadcast-card__stats">
+                        <div><span class="broadcast-card__num">97%</span><span
+                                class="broadcast-card__label">Delivered</span></div>
+                        <div><span class="broadcast-card__num">91%</span><span class="broadcast-card__label">Read</span>
+                        </div>
+                        <div><span class="broadcast-card__num">34</span><span
+                                class="broadcast-card__label">Replies</span></div>
+                    </div>
+                    <div class="broadcast-card__template">
+                        <p>"Hi {{name}}, exclusive subsale! Mont Kiara 3BR, 1200sqft, RM620K (below market). Fully
+                            furnished. Reply YES for details 📸"</p>
+                    </div>
+                </div>
+                <div class="broadcast-card">
+                    <div class="broadcast-card__status broadcast-card__status--scheduled">Scheduled</div>
+                    <h4 class="broadcast-card__title">Open House — Bangsar South</h4>
+                    <p class="broadcast-card__meta">324 contacts • Scheduled Today 2:00 PM</p>
+                    <div class="broadcast-card__stats">
+                        <div><span class="broadcast-card__num">—</span><span
+                                class="broadcast-card__label">Delivered</span></div>
+                        <div><span class="broadcast-card__num">—</span><span class="broadcast-card__label">Read</span>
+                        </div>
+                        <div><span class="broadcast-card__num">—</span><span
+                                class="broadcast-card__label">Replies</span></div>
+                    </div>
+                    <div class="broadcast-card__template">
+                        <p>"Hi {{name}}, open house this Sat! 🏡 Bangsar South 2BR, RM480K. Visit 10AM-4PM. Free
+                            parking. Reply RSVP to reserve a slot."</p>
+                    </div>
+                </div>
+                <div class="broadcast-card broadcast-card--draft">
+                    <div class="broadcast-card__status broadcast-card__status--draft">Draft</div>
+                    <h4 class="broadcast-card__title">Price Drop — KLCC Studio</h4>
+                    <p class="broadcast-card__meta">198 contacts • Not sent yet</p>
+                    <div class="broadcast-card__stats">
+                        <div><span class="broadcast-card__num">—</span><span
+                                class="broadcast-card__label">Delivered</span></div>
+                        <div><span class="broadcast-card__num">—</span><span class="broadcast-card__label">Read</span>
+                        </div>
+                        <div><span class="broadcast-card__num">—</span><span
+                                class="broadcast-card__label">Replies</span></div>
+                    </div>
+                    <div class="broadcast-card__template">
+                        <p>"Hi {{name}}, price reduced! KLCC Studio now RM350K (was RM390K). Walking distance to
+                            Pavilion. Reply CALL for viewing."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- === LISTINGS VIEW === -->
+        <div class="view" id="view-listings">
+            <div class="view__header">
+                <div>
+                    <h2 class="view__heading">Listings</h2>
+                    <p class="view__subheading">Manage your active property listings</p>
+                </div>
+                <div class="view__actions">
+                    <button class="btn btn--primary">+ Add Listing</button>
+                </div>
+            </div>
+            <div class="listing-grid">
+                <div class="listing-card">
+                    <div class="listing-card__img"><img src="images/property-titiwangsa.png" alt="Eko Titiwangsa"></div>
+                    <div class="listing-card__body">
+                        <div class="listing-card__type">FOR SALE</div>
+                        <h4 class="listing-card__title">Eko Titiwangsa — Tower A</h4>
+                        <p class="listing-card__location">📍 Titiwangsa, KL</p>
+                        <div class="listing-card__details">2 BR • 850 sqft • Level 18</div>
+                        <div class="listing-card__price">RM 450,000</div>
+                        <div class="listing-card__footer">
+                            <span>67 inquiries</span>
+                            <span class="status status--active">Active</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="listing-card">
+                    <div class="listing-card__img"><img src="images/property-mont-kiara.png" alt="Mont Kiara"></div>
+                    <div class="listing-card__body">
+                        <div class="listing-card__type">FOR SALE</div>
+                        <h4 class="listing-card__title">i-Zen Kiara I — Mont Kiara</h4>
+                        <p class="listing-card__location">📍 Mont Kiara, KL</p>
+                        <div class="listing-card__details">3 BR • 1,200 sqft • Level 22</div>
+                        <div class="listing-card__price">RM 620,000</div>
+                        <div class="listing-card__footer">
+                            <span>34 inquiries</span>
+                            <span class="status status--active">Active</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="listing-card">
+                    <div class="listing-card__img"><img src="images/property-bangsar-south.png" alt="Bangsar South">
+                    </div>
+                    <div class="listing-card__body">
+                        <div class="listing-card__type">FOR RENT</div>
+                        <h4 class="listing-card__title">South View — Bangsar South</h4>
+                        <p class="listing-card__location">📍 Bangsar South, KL</p>
+                        <div class="listing-card__details">2 BR • 900 sqft • Level 10</div>
+                        <div class="listing-card__price">RM 2,800/mo</div>
+                        <div class="listing-card__footer">
+                            <span>21 inquiries</span>
+                            <span class="status status--active">Active</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="listing-card">
+                    <div class="listing-card__img"><img src="images/property-klcc-studio.png" alt="KLCC Studio"></div>
+                    <div class="listing-card__body">
+                        <div class="listing-card__type">FOR SALE</div>
+                        <h4 class="listing-card__title">Binjai Residency — KLCC</h4>
+                        <p class="listing-card__location">📍 KLCC, KL</p>
+                        <div class="listing-card__details">Studio • 550 sqft • Level 35</div>
+                        <div class="listing-card__price">RM 350,000</div>
+                        <div class="listing-card__footer">
+                            <span>12 inquiries</span>
+                            <span class="status status--active">Active</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- === VIEWINGS VIEW === -->
+        <div class="view" id="view-viewings">
+            <div class="view__header">
+                <div>
+                    <h2 class="view__heading">Viewings</h2>
+                    <p class="view__subheading">Schedule and track property viewings</p>
+                </div>
+                <div class="view__actions">
+                    <button class="btn btn--primary">+ Schedule Viewing</button>
+                </div>
+            </div>
+            <div class="calendar-header">
+                <button class="cal-nav">←</button>
+                <h3 class="cal-month">March 2026</h3>
+                <button class="cal-nav">→</button>
+            </div>
+            <div class="panel">
+                <div class="schedule-list">
+                    <div class="schedule-day">
+                        <div class="schedule-day__label">Today — Wed, Mar 5</div>
+                        <div class="schedule-day__items">
+                            <div class="schedule-item">
+                                <div class="schedule-item__time">10:00 AM</div>
+                                <div class="schedule-item__body">
+                                    <div class="schedule-item__title">Mont Kiara — Unit 12A</div>
+                                    <div class="schedule-item__sub">Ahmad Razali • +60 12-345 6789</div>
+                                </div><span class="status status--confirmed">Confirmed</span>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-item__time">2:00 PM</div>
+                                <div class="schedule-item__body">
+                                    <div class="schedule-item__title">Bangsar South — Tower B</div>
+                                    <div class="schedule-item__sub">Siti Aminah • +60 13-876 5432</div>
+                                </div><span class="status status--pending">Pending</span>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-item__time">4:30 PM</div>
+                                <div class="schedule-item__body">
+                                    <div class="schedule-item__title">KLCC — Studio Unit</div>
+                                    <div class="schedule-item__sub">James Tan • +60 17-234 5678</div>
+                                </div><span class="status status--confirmed">Confirmed</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="schedule-day">
+                        <div class="schedule-day__label">Tomorrow — Thu, Mar 6</div>
+                        <div class="schedule-day__items">
+                            <div class="schedule-item">
+                                <div class="schedule-item__time">11:00 AM</div>
+                                <div class="schedule-item__body">
+                                    <div class="schedule-item__title">Eko Titiwangsa — Unit 8C</div>
+                                    <div class="schedule-item__sub">Nurul Aisyah • +60 11-987 6543</div>
+                                </div><span class="status status--confirmed">Confirmed</span>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-item__time">3:00 PM</div>
+                                <div class="schedule-item__body">
+                                    <div class="schedule-item__title">Damansara Heights — Bungalow</div>
+                                    <div class="schedule-item__sub">David Lim • +60 16-543 2198</div>
+                                </div><span class="status status--pending">Pending</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- === AUTOMATIONS VIEW === -->
+        <div class="view" id="view-automations">
+            <div class="view__header">
+                <div>
+                    <h2 class="view__heading">Automations</h2>
+                    <p class="view__subheading">Set up auto follow-up sequences</p>
+                </div>
+                <div class="view__actions">
+                    <button class="btn btn--primary">+ New Automation</button>
+                </div>
+            </div>
+            <div class="auto-grid">
+                <div class="auto-card auto-card--active">
+                    <div class="auto-card__header">
+                        <h4>New Lead — Welcome Sequence</h4><span class="toggle toggle--on"></span>
+                    </div>
+                    <p class="auto-card__desc">Automatically greet new leads and ask about their property preferences.
+                    </p>
+                    <div class="auto-card__flow">
+                        <div class="flow-step">Trigger: New contact added</div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-step">Immediately → Send welcome message</div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-step">Wait 1 day → Ask budget & area preference</div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-step">Wait 3 days → Send matching listings</div>
+                    </div>
+                    <div class="auto-card__stats">Triggered 124 times • 78% completion rate</div>
+                </div>
+                <div class="auto-card auto-card--active">
+                    <div class="auto-card__header">
+                        <h4>Viewing Reminder</h4><span class="toggle toggle--on"></span>
+                    </div>
+                    <p class="auto-card__desc">Send reminders before scheduled viewings to reduce no-shows.</p>
+                    <div class="auto-card__flow">
+                        <div class="flow-step">Trigger: Viewing scheduled</div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-step">24 hrs before → Send reminder + location pin</div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-step">1 hr before → "See you soon!" confirmation</div>
+                    </div>
+                    <div class="auto-card__stats">Triggered 86 times • No-show reduced by 60%</div>
+                </div>
+                <div class="auto-card">
+                    <div class="auto-card__header">
+                        <h4>Cold Lead Re-engagement</h4><span class="toggle toggle--off"></span>
+                    </div>
+                    <p class="auto-card__desc">Re-engage leads who haven't responded in 14+ days.</p>
+                    <div class="auto-card__flow">
+                        <div class="flow-step">Trigger: No response for 14 days</div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-step">Send "Still looking?" message with new listings</div>
+                    </div>
+                    <div class="auto-card__stats">Not yet activated</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- === ANALYTICS VIEW === -->
+        <div class="view" id="view-analytics">
+            <div class="view__header">
+                <div>
+                    <h2 class="view__heading">Analytics</h2>
+                    <p class="view__subheading">Track your WhatsApp performance</p>
+                </div>
+            </div>
+            <div class="stats-row">
+                <div class="stat-card">
+                    <div class="stat-card__header"><span class="stat-card__label">Total Messages</span></div>
+                    <div class="stat-card__value">4,218</div>
+                    <div class="stat-card__change stat-card__change--up">↑ 32% vs last month</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card__header"><span class="stat-card__label">Avg Response Rate</span></div>
+                    <div class="stat-card__value">89%</div>
+                    <div class="stat-card__change stat-card__change--up">↑ 5% vs last month</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card__header"><span class="stat-card__label">Avg Reply Time</span></div>
+                    <div class="stat-card__value">4m 23s</div>
+                    <div class="stat-card__change stat-card__change--up">↓ 18% faster</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card__header"><span class="stat-card__label">Quality Score</span></div>
+                    <div class="stat-card__value" style="color:#25d366;">High ✓</div>
+                    <div class="stat-card__change">No risk of restriction</div>
+                </div>
+            </div>
+            <div class="panel-row">
+                <div class="panel">
+                    <h3 class="panel__title">Messages — Last 7 Days</h3>
+                    <div class="chart-placeholder">
+                        <div class="chart-bar" style="height:40%"><span>Mon</span></div>
+                        <div class="chart-bar" style="height:65%"><span>Tue</span></div>
+                        <div class="chart-bar" style="height:85%"><span>Wed</span></div>
+                        <div class="chart-bar" style="height:55%"><span>Thu</span></div>
+                        <div class="chart-bar" style="height:70%"><span>Fri</span></div>
+                        <div class="chart-bar" style="height:30%"><span>Sat</span></div>
+                        <div class="chart-bar" style="height:20%"><span>Sun</span></div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <h3 class="panel__title">Top Performing Areas</h3>
+                    <div class="area-list">
+                        <div class="area-item"><span class="area-name">Mont Kiara</span>
+                            <div class="area-bar-wrap">
+                                <div class="area-bar" style="width:85%"></div>
+                            </div><span class="area-val">85 leads</span>
+                        </div>
+                        <div class="area-item"><span class="area-name">Bangsar South</span>
+                            <div class="area-bar-wrap">
+                                <div class="area-bar" style="width:68%"></div>
+                            </div><span class="area-val">68 leads</span>
+                        </div>
+                        <div class="area-item"><span class="area-name">KLCC</span>
+                            <div class="area-bar-wrap">
+                                <div class="area-bar" style="width:52%"></div>
+                            </div><span class="area-val">52 leads</span>
+                        </div>
+                        <div class="area-item"><span class="area-name">Cheras</span>
+                            <div class="area-bar-wrap">
+                                <div class="area-bar" style="width:35%"></div>
+                            </div><span class="area-val">35 leads</span>
+                        </div>
+                        <div class="area-item"><span class="area-name">Damansara</span>
+                            <div class="area-bar-wrap">
+                                <div class="area-bar" style="width:22%"></div>
+                            </div><span class="area-val">22 leads</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- === SETTINGS VIEW === -->
+        <div class="view" id="view-settings">
+            <div class="view__header">
+                <div>
+                    <h2 class="view__heading">Settings</h2>
+                    <p class="view__subheading">Manage your account and WhatsApp connection</p>
+                </div>
+            </div>
+            <div class="settings-grid">
+                <div class="panel">
+                    <h3 class="panel__title">WhatsApp Connection</h3>
+                    <div class="setting-row"><span class="setting-label">Status</span><span
+                            class="status status--active" style="font-weight:600;">● Connected</span></div>
+                    <div class="setting-row"><span class="setting-label">Phone Number</span><span>+60 12-345 6789</span>
+                    </div>
+                    <div class="setting-row"><span class="setting-label">Business Name</span><span>Ahmad Razif
+                            Properties</span></div>
+                    <div class="setting-row"><span class="setting-label">Quality Rating</span><span
+                            style="color:#25d366;font-weight:600;">High ✓</span></div>
+                    <div class="setting-row"><span class="setting-label">Messaging Tier</span><span>Tier 3 — 10,000
+                            msgs/24hr</span></div>
+                </div>
+                <div class="panel">
+                    <h3 class="panel__title">Account</h3>
+                    <div class="setting-row"><span class="setting-label">Name</span><span>Ahmad Razif</span></div>
+                    <div class="setting-row"><span class="setting-label">Email</span><span>ahmad@example.com</span>
+                    </div>
+                    <div class="setting-row"><span class="setting-label">Plan</span><span class="tag tag--pro">Pro Agent
+                            — RM 249/mo</span></div>
+                    <div class="setting-row"><span class="setting-label">Next billing</span><span>Apr 5, 2026</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Sidebar navigation
+        const items = document.querySelectorAll('.sidebar__item');
+        const views = document.querySelectorAll('.view');
+        const pageTitle = document.getElementById('page-title');
+
+        items.forEach(item => {
+            item.addEventListener('click', () => {
+                const viewName = item.dataset.view;
+                items.forEach(i => i.classList.remove('sidebar__item--active'));
+                item.classList.add('sidebar__item--active');
+                views.forEach(v => v.classList.remove('view--active'));
+                document.getElementById('view-' + viewName).classList.add('view--active');
+                pageTitle.textContent = item.textContent.trim();
+            });
+        });
+    </script>
+</body>
+
+</html>
